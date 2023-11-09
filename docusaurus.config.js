@@ -20,8 +20,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'unhosted-wallet', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -88,19 +88,19 @@ const config = {
             items: [
               {
                 label: 'Overview',
-                to: '/docs/overview',
+                to: '/overview',
               },
               {
                 label: 'Create Smart Account',
-                to: '/docs/create-wallet',
+                to: '/category/create-smart-account',
               },
               {
                 label: 'Extend Smart Account',
-                to: '/docs/extend-wallet',
+                to: '/category/extend-smart-account',
               },
               {
                 label: 'For Developers',
-                to: '/docs/developers',
+                to: '/category/for-developers',
               },
             ],
           },
