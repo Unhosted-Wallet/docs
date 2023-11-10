@@ -22,10 +22,34 @@ To execute arbitrary data on the handler implementation, the module must be enab
 
 To execute the strategy, you need to call the execStrategy method, which checks the signature and calls the SA to perform the strategy.
 
+```js
+function execStrategy(
+        address smartAccount,
+        StrategyTransaction memory _tx,
+        bytes memory signatures
+    ) public
+        payable
+        returns (bool success, bytes memory returnData);
+```
+
+- `address` of the smartAccount for execution.
+
+- `_tx` struct including the `value` to send, `gas` amount and `data` to call.
+
+```objectivec
+struct StrategyTransaction {
+        uint256 value;
+        uint256 gas;
+        bytes data;
+}
+```
+
+- `signatures` signed by SA owner.
+
 The strategy module signatures are EIP-712 based. And uses the following scheme:
 
-* EIP712Domain
-  
+EIP712Domain:
+
 ```js
 {
   "EIP712Domain": [
@@ -35,7 +59,7 @@ The strategy module signatures are EIP-712 based. And uses the following scheme:
 }
 ```
 
-* ExecuteStrategy
+ExecuteStrategy:
 
 ```js
 {
