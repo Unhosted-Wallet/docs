@@ -74,7 +74,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/Unhosted-Wallet/docs',
+            href: 'https://github.com/Unhosted-Wallet/unhosted-modules',
             label: 'GitHub',
             position: 'right',
           },
