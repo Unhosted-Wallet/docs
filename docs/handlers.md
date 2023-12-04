@@ -8,6 +8,8 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 
 ## Aave V2
 
+[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/aaveV2/AaveV2H.sol)
+
 | Function                                                                                                         | Description                                                                                                                                                                |
 | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `deposit(address asset,uint256 amount)`                                                                          | Deposits a certain `amount` of an `asset` into the protocol, minting the same amount of corresponding aTokens, and transferring them to the userSA address.                |
@@ -22,6 +24,8 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 
 ## Compound V3
 
+[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/compoundV3/CompoundV3H.sol)
+
 | Function                                               | Description                                                                                          |
 | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | `supply(address comet,address asset,uint256 amount)`   | Transfers an `amount` of an `asset` to the protocol and adds it to the account’s balance.            |
@@ -34,6 +38,8 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 | `repayETH(address comet,uint256 amount)`               | Used to repay an open borrow of the WETH in ETH.                                                     |
 
 ## Uniswap V3
+
+[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/uniswapV3/UniswapV3H.sol)
 
 | Function                                                                                                                             | Description                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -51,6 +57,8 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 | `exactOutput(bytes memory path,uint256 amountOut,uint256 amountInMaximum)`                                                           | Swaps as little as possible of one token for `amountOut` of another token along the specified path (reversed). |
 
 ## Lido.fi
+
+[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/lido/LidoH.sol)
 
 | Function                | Description                                         |
 | ----------------------- | --------------------------------------------------- |
