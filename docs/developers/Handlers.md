@@ -52,10 +52,11 @@ import { AaveV2Handler } from "@unhosted/handlers/aaveV2/AaveV2H.sol";
 contract MyStrategy is UniswapV3Handler, AaveV2Handler {
   constructor(
     address wethAddress,
+    address uniV3Router,
     address aaveV2Provider,
     address fallbackHandler
   )
-    UniswapV3Handler(wethAddress)
+    UniswapV3Handler(wethAddress, uniV3Router)
     AaveV2Handler(wethAddress, aaveV2Provider, fallbackHandler)
   {}
 
