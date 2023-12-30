@@ -75,8 +75,8 @@ contract MyStrategy is UniswapV3Handler, AaveV2Handler {
 
 1. The functions in handlers operate through `delegatecall` from the user's wallet. Therefore, it's crucial that handlers are developed in a way that avoids altering the wallet storage. State variables should be defined as either `constant` or `immutable` variables, which are stored directly in the deployed bytecode. This means they are not stored at a fixed offset in storage, unlike regular state variables.
 2. Certain functionalities in strategies, such as flash loans, require changes to the fallback handlers on the user's wallet. This is why there is a fallback handler storage slot in `BaseHandler.sol` that can be modified based on the functionality, as seen in the example of the AaveV2 handler.
-:::
+   :::
 
 ## Next Step
 
-Now you are prepared to [deploy your strategy module](./StratModules) using the Module Factory and start accumulating fees for it.
+If you're not yet familiar with utilizing our handler library and crafting DeFi strategies, please refer to our example [guide](./HandlerGuide) for further assistance.

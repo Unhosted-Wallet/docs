@@ -1,10 +1,10 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Deploying Strategy Modules
 
-If you haven't built your handler for the strategy module implementation, you can utilize our [handler library](./Handlers) for assistance.
+If you haven't built your handler for the strategy module implementation, you can utilize our [handler library](./Handlers) and  refer to our example handler [building guide](./HandlerGuide) for assistance.
 
 ### How It Works
 
@@ -55,6 +55,7 @@ EIP712Domain:
   "EIP712Domain": [
     { "type": "uint256", "name": "chainId" },
     { "type": "address", "name": "verifyingContract" }
+    { "type": "bytes32", "name": "salt" }
   ]
 }
 ```
