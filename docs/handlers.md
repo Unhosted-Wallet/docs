@@ -2,13 +2,13 @@
 sidebar_position: 8
 ---
 
-# @unhosted/handlers
+# @unhosted/strategies
 
-pre-built functionalities from the [handler library](./developers/Handlers)
+pre-built functionalities from the [strategy library](./developers/StrategyGuide)
 
 ## Aave V2
 
-[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/aaveV2/AaveV2H.sol)
+[Code](https://github.com/Unhosted-Wallet/unhosted-strategies/blob/main/src/aaveV2/AaveV2Strategy.sol)
 
 | Function                                                                                                         | Description                                                                                                                                                                |
 | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -24,7 +24,7 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 
 ## Compound V3
 
-[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/compoundV3/CompoundV3H.sol)
+[Code](https://github.com/Unhosted-Wallet/unhosted-strategies/blob/main/src/compoundV3/CompoundV3Strategy.sol)
 
 | Function                                               | Description                                                                                          |
 | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 
 ## Uniswap V3
 
-[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/uniswapV3/UniswapV3H.sol)
+[Code](https://github.com/Unhosted-Wallet/unhosted-strategies/blob/main/src/uniswapV3/UniswapV3Strategy.sol)
 
 | Function                                                                                                                             | Description                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -58,7 +58,7 @@ pre-built functionalities from the [handler library](./developers/Handlers)
 
 ## Lido.fi
 
-[Code](https://github.com/Unhosted-Wallet/unhosted-modules/blob/main/defi-strategies/contracts/handlers/lido/LidoH.sol)
+[Code](https://github.com/Unhosted-Wallet/unhosted-strategies/blob/main/src/lido/LidoStrategy.sol)
 
 | Function                | Description                                         |
 | ----------------------- | --------------------------------------------------- |

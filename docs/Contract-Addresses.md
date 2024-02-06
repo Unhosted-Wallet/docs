@@ -4,16 +4,17 @@ sidebar_position: 6
 
 # Contract Addresses
 
-## Goerli
+Ethereum, Polygon, Arbitrum, Optimism, Bsc, Fantom,Avalanche and Gnosis
 
-| Contracts               | Addresses                                                                                                                         |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `StrategyModuleFactory` | [0x2b2EA246FcEf28fE90f5de6FD54Bd121E0eD7066](https://goerli.etherscan.io/address/0x2b2EA246FcEf28fE90f5de6FD54Bd121E0eD7066#code) |
-| `StrategyModule`        | [0x8092598451ee037505525046A79c4544a12C1935](https://goerli.etherscan.io/address/0x8092598451ee037505525046A79c4544a12C1935#code) |
+| Contracts        | Addresses                                                                                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `StrategyModule` | [0xfDa104db406BF601049A8c7C1f63e02b0B302E1E](https://etherscan.io/address/0xfDa104db406BF601049A8c7C1f63e02b0B302E1E#code) |
 
-## Mumbai
+## Strategies
 
 | Contracts               | Addresses                                                                                                                            |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `StrategyModuleFactory` | [0xb878B67D738ff1Ce25812589a1A845cB8A4857b1](https://mumbai.polygonscan.com/address/0xb878B67D738ff1Ce25812589a1A845cB8A4857b1#code) |
-| `StrategyModule`        | [0x60c215d50714582ec92f27aBAAeEa3Ac5AcD430F](https://mumbai.polygonscan.com/address/0x60c215d50714582ec92f27aBAAeEa3Ac5AcD430F#code) |
+| `Compound V3 Arbitrum` | [0xC02927e252a9e7804EAA06aCCA06afC927074694](https://arbiscan.io/address/0xC02927e252a9e7804EAA06aCCA06afC927074694#code) |
+| `Compound V3 Polygon` | [0x40724f99283Ad58C8981497Da048a7E347100463](https://polygonscan.com/address/0x40724f99283Ad58C8981497Da048a7E347100463#code) |
+| `Aave V2 Polygon`        | [0x95ab294E73Bb65994960E0965E75F9a36b715520](https://polygonscan.com/address/0x95ab294E73Bb65994960E0965E75F9a36b715520) |
+| `Aave V2 Avalanche`        | [0x25318a291C5dEBA8C717Bd690bc17006d637B604](https://snowtrace.io/address/0x25318a291C5dEBA8C717Bd690bc17006d637B604) |
