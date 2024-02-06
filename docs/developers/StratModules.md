@@ -1,46 +1,64 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
-# Deploying Strategy Modules
+# Adding Strategy
 
-If you haven't built your handler for the strategy module implementation, you can utilize our [handler library](./Handlers) and  refer to our example handler [building guide](./HandlerGuide) for assistance.
+If you haven't built your strategy, refer to our example strategy [building guide](./StrategyGuide) for assistance.
 
-### How It Works
+## How Strategy Module works
 
-![SMDiagram](./img/SMDiagram.jpg)
-
-After constructing your handler, deploy it on a supported network. Utilize the module factory by providing the handler address and the beneficiary's address for your strategy. The factory will then deploy a proxy with your handler as its implementation, and both the handler and beneficiary addresses become immutable. Different handlers may need distinct interfaces to interact with in the wallet, and we obtain your handler ABI for creating its interface. Feel free to reach out to us for any improvements in this process.
-
-### Module Factory
-
-This contract operates as a singleton registry, purpose-built for deploying Strategy Modules while receiving both the strategy implementation and beneficiary as inputs.
+After constructing your strategy, deploy it on a supported network. Use our singleton strategy module on that network to add your strategy by calling `updateStrategy` function and passing your strategy address and the dev address for receiveing the fees.the dev address can always updated by current dev. Different strategies may need distinct interfaces to interact with in the wallet, and we obtain your strategy ABI for creating its interface. Feel free to reach out to us for any improvements in this process.
 
 ### Execute Strategy
 
-To execute arbitrary data on the handler implementation, the module must be enabled, and the transaction must be signed by the Smart Account (SA) owner.
+To execute arbitrary data on the strategy, the strategy module must be enabled, and the transaction must be signed by the Smart Account (SA) owner.
 
-To execute the strategy, you need to call the execStrategy method, which checks the signature and calls the SA to perform the strategy.
+To execute the strategy, `executeStrategy` or `executeTriggeredStrategy` method should be called, which checks the signature or any trigger condition and calls the SA to perform the strategy.
 
 ```js
-function execStrategy(
+function executeStrategy(
         address smartAccount,
         StrategyTransaction memory _tx,
         bytes memory signatures
     ) public
         payable
-        returns (bool success, bytes memory returnData);
+        returns (bool executed, uint256 gasUsed, bytes memory returnData);
+```
+
+```js
+function executeTriggeredStrategy(
+        address smartAccount,
+        StrategyTransaction memory _tx,
+        bytes memory signatures
+    ) public
+        payable
+        returns (bool executed, uint256 gasUsed, bytes memory returnData);
 ```
 
 - `address` of the smartAccount for execution.
 
-- `_tx` struct including the `value` to send, `gas` amount and `data` to call.
+- `_tx` struct including `operation` as type of tx, `strategy` as the strategy address to execute, the `value` to send and `strategyData` to call or delegatecall.
+
+- for triggered execution the `executeTriggeredStrategy` checks if the `trigger` address returns `true` for calling `triggerData` before actual execution.
 
 ```objectivec
 struct StrategyTransaction {
+        Enum.Operation operation;
+        address strategy;
         uint256 value;
-        uint256 gas;
-        bytes data;
+        bytes strategyData;
+}
+```
+
+```objectivec
+struct TriggeredStrategyTransaction {
+        Enum.Operation operation;
+        address strategy;
+        uint256 value;
+        bytes strategyData;
+        address trigger;
+        bytes triggerData;
 }
 ```
 
@@ -53,9 +71,10 @@ EIP712Domain:
 ```js
 {
   "EIP712Domain": [
+    { "type": "string", "name": "name" },
+    { "type": "string", "name": "version" },
     { "type": "uint256", "name": "chainId" },
     { "type": "address", "name": "verifyingContract" }
-    { "type": "bytes32", "name": "salt" }
   ]
 }
 ```
@@ -65,9 +84,26 @@ ExecuteStrategy:
 ```js
 {
   "ExecuteStrategy": [
-    { "type": "address", "name": "handler" },
+    { "type": "Operation", "name": "operation" },
+    { "type": "address", "name": "strategy" },
     { "type": "uint256", "name": "value" },
-    { "type": "bytes", "name": "data" },
+    { "type": "bytes", "name": "strategyData" },
+    { "type": "uint256", "name": "nonce" }
+  ]
+}
+```
+
+ExecuteTriggeredStrategy:
+
+```js
+{
+  "ExecuteTriggeredStrategy": [
+    { "type": "Operation", "name": "operation" },
+    { "type": "address", "name": "strategy" },
+    { "type": "uint256", "name": "value" },
+    { "type": "bytes", "name": "strategyData" },
+    { "type": "address", "name": "trigger" },
+    { "type": "bytes", "name": "triggerData" },
     { "type": "uint256", "name": "nonce" }
   ]
 }
@@ -75,4 +111,4 @@ ExecuteStrategy:
 
 ### Approval Mechanism
 
-However, the module strategy factory is permissionless, allowing anyone to deploy their strategy with their handler implementation and add it to their wallet. Nonetheless, unhosted comes with its own approval mechanism, ensuring that only modules that have undergone security checks are displayed. This precaution is in place to prevent the addition of malicious code to users' wallets.
+However, the module strategy is permissionless, enabling anyone to add their strategy contract and adding them to their wallet, Unhosted incorporates its approval mechanism. This ensures that only modules with verified security measures are provided to our users. Moving forward, we plan to adopt [ERC7484](https://eips.ethereum.org/EIPS/eip-7484) (Registries and Adapters for Smart Accounts) to validate the security of our on-chain strategies. This precaution is in place to prevent the addition of malicious code to users' wallets.
