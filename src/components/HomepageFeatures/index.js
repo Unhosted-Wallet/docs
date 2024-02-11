@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/Programmer-bro.svg').default,
     description: (
       <>
-        Tailor your wallet by creating custom modules through Biconomy's modular design or employing Unhosted handlers to automate your unique strategies.
+        Tailor your wallet by creating custom modules through Biconomy's modular design or employing Unhosted defi strategies to automate your unique strategies.
       </>
     ),
   },
